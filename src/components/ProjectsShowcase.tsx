@@ -12,30 +12,30 @@ export const ProjectsShowcase: React.FC = () => {
   const filteredProjects = projectsData.filter((project) => {
     if (filterCategory === 'All') return true;
     if (filterCategory === 'Cybersecurity') return project.category.includes('Cybersecurity');
-    if (filterCategory === 'AI & ML') return project.category.includes('Machine Learning') || project.category.includes('Predictive');
+    if (filterCategory === 'AI & ML') return project.category.includes('Machine Learning') || project.category.includes('Predictive') || project.category.includes('ML');
     if (filterCategory === 'Systems & Algo') return project.category.includes('Algorithm') || project.category.includes('Optimization');
     if (filterCategory === 'Fintech') return project.category.includes('Fintech');
     return true;
   });
 
   return (
-    <section id="work" className="py-24 sm:py-32 relative bg-[#111412] border-t border-[#EDEAE1]/10">
+    <section id="work" className="py-24 sm:py-32 relative bg-[#101112] border-t border-[#F2EEE8]/12">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header with Category Filters */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-[#EDEAE1]/10 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-[#F2EEE8]/12 pb-8">
           <div>
-            <div className="font-mono text-xs text-[#A9B89B] tracking-widest uppercase mb-2 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A9B89B]"></span>
+            <div className="font-mono text-xs text-[#D66F43] tracking-widest uppercase mb-2 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D66F43]"></span>
               <span>SECTION // 03</span>
               <span>•</span>
               <span>AUTHENTIC PROJECT ARCHIVES</span>
             </div>
-            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl text-[#EDEAE1] font-normal leading-tight">
-              Selected Work <span className="italic text-[#A9B89B]">& Engineering Labs</span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#F2EEE8] font-bold leading-tight">
+              Selected Work <span className="font-editorial italic font-normal text-[#D66F43]">& Engineering Labs</span>
             </h2>
-            <p className="mt-3 font-sans text-sm sm:text-base text-[#888D85] max-w-xl font-light">
-              Actual screenshots and codebase realities from collaborative cybersecurity labs, explainable ML models, and interactive algorithm engines.
+            <p className="mt-3 font-sans text-sm sm:text-base text-[#A9A29A] max-w-xl font-light">
+              Actual application screenshots and codebase realities across explainable ML models, cybersecurity labs, and interactive algorithm engines.
             </p>
           </div>
 
@@ -47,8 +47,8 @@ export const ProjectsShowcase: React.FC = () => {
                 onClick={() => setFilterCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
                   filterCategory === cat
-                    ? 'bg-[#EDEAE1] text-[#111412] font-semibold shadow-sm'
-                    : 'bg-[#181E1A] text-[#888D85] hover:text-[#EDEAE1] border border-[#EDEAE1]/10'
+                    ? 'bg-[#D66F43] text-[#101112] font-bold shadow-md shadow-[#D66F43]/20'
+                    : 'bg-[#191817] text-[#A9A29A] hover:text-[#F2EEE8] border border-[#F2EEE8]/10'
                 }`}
               >
                 {cat}
@@ -62,7 +62,6 @@ export const ProjectsShowcase: React.FC = () => {
           {filteredProjects.map((project, index) => {
             const isEven = index % 2 === 0;
 
-            // Specialized visual accents per project
             const isFutureForge = project.id === 'futureforge';
             const isCatchPhish = project.id === 'catchphish';
             const isTrafficSense = project.id === 'trafficsense';
@@ -73,25 +72,25 @@ export const ProjectsShowcase: React.FC = () => {
               <article
                 key={project.id}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isFutureForge
-                    ? 'bg-[#10151a]/90 border-[#F97316]/25 hover:border-[#F97316]/50 shadow-xl shadow-orange-950/10'
-                    : isCatchPhish
-                    ? 'bg-[#0d0e11]/95 border-[#FACC15]/25 hover:border-[#FACC15]/50 shadow-xl shadow-yellow-950/10'
+                  isCatchPhish
+                    ? 'bg-[#161715]/95 border-[#D66F43]/30 hover:border-[#D66F43]/60 shadow-xl shadow-orange-950/10'
+                    : isFutureForge
+                    ? 'bg-[#12161a]/95 border-[#E68962]/30 hover:border-[#E68962]/60 shadow-xl shadow-orange-950/10'
                     : isTrafficSense
-                    ? 'bg-[#061612]/90 border-[#881337]/35 hover:border-[#881337]/60 shadow-xl shadow-red-950/10'
+                    ? 'bg-[#121815]/95 border-[#A85B3D]/35 hover:border-[#D66F43]/60 shadow-xl shadow-red-950/10'
                     : isWealthAvatar
-                    ? 'bg-[#151d18]/90 border-[#10B981]/25 hover:border-[#10B981]/50 shadow-xl shadow-emerald-950/10'
-                    : 'bg-[#0c1017]/90 border-[#38BDF8]/25 hover:border-[#38BDF8]/50 shadow-xl shadow-cyan-950/10'
+                    ? 'bg-[#141b17]/95 border-[#10B981]/25 hover:border-[#10B981]/50 shadow-xl shadow-emerald-950/10'
+                    : 'bg-[#12171c]/95 border-[#38BDF8]/25 hover:border-[#38BDF8]/50 shadow-xl shadow-cyan-950/10'
                 }`}
               >
-                {/* Individualized Project Card Header Bar */}
-                <div className="px-6 py-3.5 border-b border-[#EDEAE1]/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                {/* Project Header Bar */}
+                <div className="px-6 py-3.5 border-b border-[#F2EEE8]/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
                   <div className="flex items-center gap-3">
-                    <span className="font-bold" style={{ color: project.accentColor }}>
+                    <span className="font-bold tracking-wider" style={{ color: project.accentColor }}>
                       PROJ_0{index + 1} // {project.title.toUpperCase()}
                     </span>
-                    <span className="text-[#888D85]">•</span>
-                    <span className="text-[#C4C0B5]">{project.category}</span>
+                    <span className="text-[#A9A29A]">•</span>
+                    <span className="text-[#C8C2BA]">{project.category}</span>
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -110,7 +109,7 @@ export const ProjectsShowcase: React.FC = () => {
                         LIVE PROTOTYPE
                       </span>
                     ) : (
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#888D85]/15 text-[#888D85] border border-[#888D85]/30">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#A9A29A]/15 text-[#A9A29A] border border-[#A9A29A]/30">
                         LOCAL / CLI REPO
                       </span>
                     )}
@@ -128,7 +127,7 @@ export const ProjectsShowcase: React.FC = () => {
                   >
                     <div
                       onClick={() => setSelectedProject(project)}
-                      className="group cursor-pointer relative rounded-xl overflow-hidden border border-[#EDEAE1]/10 bg-black/40 hover:border-[#A9B89B]/50 transition-all duration-300 shadow-2xl"
+                      className="group cursor-pointer relative rounded-xl overflow-hidden border border-[#F2EEE8]/10 bg-black/50 hover:border-[#D66F43]/50 transition-all duration-300 shadow-2xl"
                     >
                       {/* Actual Screenshot */}
                       <img
@@ -139,21 +138,20 @@ export const ProjectsShowcase: React.FC = () => {
                       />
 
                       {/* Hover Overlay Hint */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-5">
-                        <span className="font-mono text-xs text-[#EDEAE1] bg-[#111412]/90 px-3 py-1.5 rounded-lg border border-[#EDEAE1]/20 flex items-center gap-1.5">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-5">
+                        <span className="font-mono text-xs text-[#F2EEE8] bg-[#101112]/90 px-3 py-1.5 rounded-lg border border-[#F2EEE8]/20 flex items-center gap-1.5">
                           <span>Inspect Full Case Study & Architecture</span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#FACC15]" />
+                          <ChevronRight className="w-3.5 h-3.5 text-[#D66F43]" />
                         </span>
-                        <span className="font-mono text-[11px] text-[#A9B89B]">
+                        <span className="font-mono text-[11px] text-[#D66F43]">
                           [CLICK TO EXPAND]
                         </span>
                       </div>
                     </div>
 
-                    {/* Screenshot Caption with Technical Honesty */}
-                    <div className="mt-2.5 flex items-center justify-between text-[11px] font-mono text-[#888D85] px-1">
+                    <div className="mt-2.5 flex items-center justify-between text-[11px] font-mono text-[#A9A29A] px-1">
                       <span>ASSET: {project.image}</span>
-                      <span className="text-[#A9B89B]">100% UNMODIFIED WORK REPOSITORY CAPTURE</span>
+                      <span className="text-[#D66F43]">100% UNMODIFIED WORK REPOSITORY CAPTURE</span>
                     </div>
                   </div>
 
@@ -164,42 +162,41 @@ export const ProjectsShowcase: React.FC = () => {
                     }`}
                   >
                     <div>
-                      {/* Tagline & Subtitle */}
-                      <h3 className="font-editorial text-3xl sm:text-4xl text-[#EDEAE1] font-normal leading-tight mb-2">
+                      <h3 className="font-display text-3xl sm:text-4xl text-[#F2EEE8] font-bold leading-tight mb-1">
                         {project.title}
                       </h3>
-                      <p className="font-mono text-xs text-[#A9B89B] tracking-wider mb-4">
+                      <p className="font-mono text-xs text-[#D66F43] tracking-wider mb-4">
                         {project.subtitle}
                       </p>
 
-                      <p className="font-sans text-sm text-[#C4C0B5] leading-relaxed font-light mb-6">
+                      <p className="font-serif text-sm text-[#C8C2BA] leading-relaxed font-light mb-6">
                         {project.tagline}
                       </p>
 
                       {/* Clear Role Separation */}
-                      <div className="p-4 rounded-xl bg-[#111412]/70 border border-[#EDEAE1]/10 space-y-2 mb-6">
-                        <div className="font-mono text-[10px] text-[#888D85] uppercase tracking-wider flex items-center gap-1.5">
+                      <div className="p-4 rounded-xl bg-[#101112]/80 border border-[#F2EEE8]/10 space-y-2 mb-6">
+                        <div className="font-mono text-[10px] text-[#A9A29A] uppercase tracking-wider flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: project.accentColor }}></span>
                           <span>MY DIRECT RESPONSIBILITY:</span>
                         </div>
-                        <p className="font-sans text-xs text-[#EDEAE1] font-medium leading-relaxed">
+                        <p className="font-sans text-xs text-[#F2EEE8] font-semibold leading-relaxed">
                           {project.myRole}
                         </p>
                         {project.teammateRole && (
-                          <div className="pt-2 border-t border-[#EDEAE1]/5 text-[11px] text-[#888D85] font-sans">
-                            <span className="font-mono text-[10px] text-[#888D85] uppercase mr-1">Teammate:</span>
+                          <div className="pt-2 border-t border-[#F2EEE8]/8 text-[11px] text-[#A9A29A] font-sans">
+                            <span className="font-mono text-[10px] text-[#A9A29A] uppercase mr-1">Teammate:</span>
                             {project.teammateRole}
                           </div>
                         )}
                       </div>
 
-                      {/* Real Highlights / Metrics */}
+                      {/* Real Highlights */}
                       <div className="grid grid-cols-2 gap-2 mb-6">
                         {project.metricsOrHighlights.slice(0, 2).map((m, i) => (
-                          <div key={i} className="p-3 rounded-lg bg-[#181E1A]/80 border border-[#EDEAE1]/5">
-                            <span className="font-mono text-[9px] text-[#888D85] uppercase block">{m.label}</span>
-                            <span className="font-display text-base font-bold text-[#EDEAE1] block mt-0.5">{m.value}</span>
-                            {m.note && <span className="font-mono text-[9px] text-[#A9B89B] block mt-0.5">{m.note}</span>}
+                          <div key={i} className="p-3 rounded-lg bg-[#191817] border border-[#F2EEE8]/8">
+                            <span className="font-mono text-[9px] text-[#A9A29A] uppercase block">{m.label}</span>
+                            <span className="font-display text-base font-bold text-[#F2EEE8] block mt-0.5">{m.value}</span>
+                            {m.note && <span className="font-mono text-[9px] text-[#D66F43] block mt-0.5">{m.note}</span>}
                           </div>
                         ))}
                       </div>
@@ -209,13 +206,13 @@ export const ProjectsShowcase: React.FC = () => {
                         {project.technologies.slice(0, 5).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2.5 py-1 rounded-md bg-[#202823] text-[11px] font-mono text-[#C4C0B5] border border-[#EDEAE1]/5"
+                            className="px-2.5 py-1 rounded-md bg-[#242220] text-[11px] font-mono text-[#C8C2BA] border border-[#F2EEE8]/5"
                           >
                             {tech}
                           </span>
                         ))}
                         {project.technologies.length > 5 && (
-                          <span className="px-2 py-1 rounded-md bg-[#202823]/50 text-[11px] font-mono text-[#888D85]">
+                          <span className="px-2 py-1 rounded-md bg-[#242220]/50 text-[11px] font-mono text-[#A9A29A]">
                             +{project.technologies.length - 5} more
                           </span>
                         )}
@@ -226,10 +223,10 @@ export const ProjectsShowcase: React.FC = () => {
                     <div className="flex items-center gap-3 pt-2">
                       <button
                         onClick={() => setSelectedProject(project)}
-                        className="px-4 py-2.5 rounded-lg text-xs font-display font-semibold transition-all duration-200 flex items-center gap-2"
+                        className="px-4 py-2.5 rounded-lg text-xs font-display font-bold transition-all duration-200 flex items-center gap-2"
                         style={{
                           backgroundColor: project.accentColor,
-                          color: '#111412',
+                          color: '#101112',
                         }}
                       >
                         <span>Deep-Dive Case Study</span>
@@ -241,10 +238,10 @@ export const ProjectsShowcase: React.FC = () => {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3.5 py-2.5 rounded-lg bg-[#202823] text-xs font-mono text-[#EDEAE1] border border-[#EDEAE1]/10 hover:border-[#A9B89B]/50 transition-colors flex items-center gap-1.5"
+                          className="px-3.5 py-2.5 rounded-lg bg-[#242220] text-xs font-mono text-[#F2EEE8] border border-[#F2EEE8]/10 hover:border-[#D66F43]/50 transition-colors flex items-center gap-1.5"
                         >
                           <span>Live Demo</span>
-                          <ExternalLink className="w-3.5 h-3.5 text-[#A9B89B]" />
+                          <ExternalLink className="w-3.5 h-3.5 text-[#D66F43]" />
                         </a>
                       )}
 
@@ -253,7 +250,7 @@ export const ProjectsShowcase: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${project.title} GitHub repository`}
-                        className="p-2.5 rounded-lg bg-[#202823] text-[#C4C0B5] hover:text-[#EDEAE1] border border-[#EDEAE1]/10 hover:border-[#A9B89B]/40 transition-colors"
+                        className="p-2.5 rounded-lg bg-[#242220] text-[#A9A29A] hover:text-[#F2EEE8] border border-[#F2EEE8]/10 hover:border-[#D66F43]/40 transition-colors"
                       >
                         <Github className="w-4 h-4" />
                       </a>

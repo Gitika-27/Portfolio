@@ -9,45 +9,38 @@ export default {
     extend: {
       colors: {
         dark: {
-          DEFAULT: '#111412',
-          surface: '#181E1A',
-          secondary: '#202823',
-          elevated: '#28332C',
-          border: 'rgba(237, 234, 225, 0.08)',
-          'border-hover': 'rgba(169, 184, 155, 0.25)',
+          DEFAULT: '#101112',
+          surface: '#191817',
+          secondary: '#242220',
+          elevated: '#2F2B28',
+          border: 'rgba(242, 238, 232, 0.12)',
+          'border-hover': 'rgba(214, 111, 67, 0.35)',
         },
         ivory: {
-          DEFAULT: '#EDEAE1',
-          muted: '#C4C0B5',
-          dim: '#8E8B82',
+          DEFAULT: '#F2EEE8',
+          muted: '#C8C2BA',
+          dim: '#A9A29A',
         },
-        sage: {
-          light: '#C7D3BC',
-          DEFAULT: '#A9B89B',
-          dark: '#7D8C6F',
-        },
-        forest: {
-          light: '#6E8F74',
-          DEFAULT: '#526C56',
-          dark: '#3A4D3E',
-        },
-        muted: {
-          grey: '#888D85',
+        terracotta: {
+          light: '#E68962',
+          DEFAULT: '#D66F43',
+          dark: '#A85B3D',
         },
         accent: {
+          DEFAULT: '#D66F43',
+          muted: '#A85B3D',
           amber: '#F59E0B',
           cyber: '#FACC15',
-          orange: '#F97316',
-          burgundy: '#881337',
           emerald: '#10B981',
-          cyan: '#06B6D4',
+          cyan: '#38BDF8',
+          burgundy: '#881337',
         }
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', '"Space Mono"', 'monospace'],
+        sans: ['"Nunito"', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Lora"', 'Georgia', 'serif'],
+        display: ['"Nunito"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

@@ -14,7 +14,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'work', 'stack', 'journey', 'leadership', 'contact'];
+      const sections = ['hero', 'work', 'about', 'stack', 'journey', 'leadership', 'contact'];
       const scrollPosition = window.scrollY + 250;
 
       for (const sectionId of sections) {
@@ -34,9 +34,16 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSelectProjectFromRibbon = (projectId: string) => {
+    const workEl = document.getElementById('work');
+    if (workEl) {
+      workEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#111412] text-[#EDEAE1] selection:bg-[#526C56]/30 selection:text-[#EDEAE1] relative overflow-x-hidden">
-      {/* Subtle Analog Noise Overlay */}
+    <div className="min-h-screen bg-[#101112] text-[#F2EEE8] selection:bg-[#D66F43]/30 selection:text-[#F2EEE8] relative overflow-x-hidden">
+      {/* Subtle Analog Grain Overlay */}
       <div className="noise-overlay" />
 
       {/* Persistent Navigation */}
@@ -44,7 +51,7 @@ export const App: React.FC = () => {
 
       {/* Main Experience Flow */}
       <main>
-        <Hero />
+        <Hero onSelectProject={handleSelectProjectFromRibbon} />
         <About />
         <ProjectsShowcase />
         <TechnicalArsenal />

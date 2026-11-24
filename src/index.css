@@ -12,66 +12,66 @@
   }
 
   body {
-    background-color: #111412;
-    color: #EDEAE1;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #101112;
+    color: #F2EEE8;
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
     letter-spacing: -0.01em;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom sleek scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #111412;
+    background: #101112;
   }
   ::-webkit-scrollbar-thumb {
-    background: #202823;
+    background: #242220;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #526C56;
+    background: #D66F43;
   }
 }
 
-/* Subtle background grid pattern inspired by Axon & CatchPhish */
+/* Subtle background grid pattern */
 .bg-grid-subtle {
-  background-size: 36px 36px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(237, 234, 225, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(237, 234, 225, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(242, 238, 232, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 238, 232, 0.025) 1px, transparent 1px);
 }
 
 .bg-dot-matrix {
-  background-image: radial-gradient(rgba(169, 184, 155, 0.12) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(214, 111, 67, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Typography utilities */
 .font-editorial {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Lora', Georgia, serif;
 }
 
 .font-display {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Nunito', system-ui, sans-serif;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', 'Space Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* Glass & Border Treatments */
 .editorial-card {
-  background: rgba(24, 30, 26, 0.65);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(237, 234, 225, 0.07);
+  background: rgba(25, 24, 23, 0.75);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(242, 238, 232, 0.12);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
-  border-color: rgba(169, 184, 155, 0.22);
-  background: rgba(32, 40, 35, 0.85);
+  border-color: rgba(214, 111, 67, 0.35);
+  background: rgba(36, 34, 32, 0.85);
 }
 
 /* Noise overlay */

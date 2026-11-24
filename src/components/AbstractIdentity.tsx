@@ -20,7 +20,6 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
   interactive = true,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [isHovered, setIsHovered] = useState(false);
   const [pulseCount, setPulseCount] = useState(0);
 
   useEffect(() => {
@@ -44,41 +43,40 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
     window.addEventListener('resize', handleResize);
 
     const particles: Particle[] = [];
-    const mouse = { x: -1000, y: -1000, radius: 90 };
+    const mouse = { x: -1000, y: -1000, radius: 95 };
 
+    // New Warm Charcoal & Terracotta Palette
     const colors = [
-      '#EDEAE1', // warm ivory
-      '#A9B89B', // sage
-      '#526C56', // forest green
-      '#FACC15', // electric yellow accent
-      '#888D85', // muted grey
+      '#F2EEE8', // warm ivory
+      '#D66F43', // terracotta accent
+      '#A85B3D', // muted burnt orange
+      '#C8C2BA', // light warm grey
+      '#A9A29A', // muted secondary
     ];
 
     const initParticles = () => {
       particles.length = 0;
       const centerX = width / 2;
       const centerY = height / 2;
-      const radius = Math.min(width, height) * 0.34;
+      const radius = Math.min(width, height) * 0.35;
 
       // 1. Core geometric points defining the iconic architectural 'G'
-      // Outer arc of 'G': from 45 deg to 315 deg (or -45 to 225 deg)
-      const numArcPoints = 140;
+      const numArcPoints = 145;
       for (let i = 0; i < numArcPoints; i++) {
-        // Angles: start at roughly 35 degrees down to 310 degrees counter-clockwise
         const angle = 0.55 + (i / numArcPoints) * Math.PI * 1.68;
         const r = radius * (0.92 + Math.sin(i * 0.4) * 0.05);
         const px = centerX + Math.cos(angle) * r;
         const py = centerY + Math.sin(angle) * r;
 
         particles.push({
-          x: px + (Math.random() - 0.5) * 40,
-          y: py + (Math.random() - 0.5) * 40,
+          x: px + (Math.random() - 0.5) * 35,
+          y: py + (Math.random() - 0.5) * 35,
           originX: px,
           originY: py,
           vx: (Math.random() - 0.5) * 0.8,
           vy: (Math.random() - 0.5) * 0.8,
           size: Math.random() * 2.2 + 1.2,
-          color: i % 18 === 0 ? colors[3] : (i % 3 === 0 ? colors[1] : colors[0]),
+          color: i % 14 === 0 ? colors[1] : (i % 3 === 0 ? colors[3] : colors[0]),
           alpha: Math.random() * 0.6 + 0.4,
           angle: Math.random() * Math.PI * 2,
           speed: 0.02 + Math.random() * 0.02,
@@ -93,15 +91,15 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
         const py = centerY;
 
         particles.push({
-          x: px + (Math.random() - 0.5) * 30,
-          y: py + (Math.random() - 0.5) * 30,
+          x: px + (Math.random() - 0.5) * 25,
+          y: py + (Math.random() - 0.5) * 25,
           originX: px,
           originY: py,
           vx: (Math.random() - 0.5) * 0.8,
           vy: (Math.random() - 0.5) * 0.8,
           size: Math.random() * 2.0 + 1.4,
-          color: i % 8 === 0 ? colors[3] : colors[1],
-          alpha: 0.75,
+          color: i % 6 === 0 ? colors[1] : colors[0],
+          alpha: 0.8,
           angle: Math.random() * Math.PI * 2,
           speed: 0.02,
           isCore: true,
@@ -123,14 +121,14 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
           vy: (Math.random() - 0.5) * 0.8,
           size: Math.random() * 2.0 + 1.2,
           color: colors[0],
-          alpha: 0.7,
+          alpha: 0.75,
           angle: Math.random() * Math.PI * 2,
           speed: 0.02,
           isCore: true,
         });
       }
 
-      // 2. Ambient orbital halo & harmonic field (Dot Portrait inspiration)
+      // 2. Ambient orbital halo & harmonic constellation field
       const numHaloPoints = 120;
       for (let i = 0; i < numHaloPoints; i++) {
         const theta = Math.random() * Math.PI * 2;
@@ -157,7 +155,7 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
 
     initParticles();
 
-    // Mouse handlers
+    // Mouse handlers (magnetic deflection & repulsion)
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
@@ -169,15 +167,15 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
       mouse.y = -1000;
     };
 
+    // Click handler (shockwave dispersion)
     const handleClick = () => {
       setPulseCount((prev) => prev + 1);
-      // Shockwave dispersion
       particles.forEach((p) => {
         const dx = p.x - width / 2;
         const dy = p.y - height / 2;
         const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        p.vx += (dx / dist) * 12;
-        p.vy += (dy / dist) * 12;
+        p.vx += (dx / dist) * 14;
+        p.vy += (dy / dist) * 14;
       });
     };
 
@@ -193,7 +191,7 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
       time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
-      // Subtle center focal glow
+      // Subtle warm center focal glow
       const grad = ctx.createRadialGradient(
         width / 2,
         height / 2,
@@ -202,13 +200,13 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
         height / 2,
         width * 0.48
       );
-      grad.addColorStop(0, 'rgba(82, 108, 86, 0.12)');
-      grad.addColorStop(0.5, 'rgba(32, 40, 35, 0.05)');
-      grad.addColorStop(1, 'rgba(17, 20, 18, 0)');
+      grad.addColorStop(0, 'rgba(214, 111, 67, 0.12)');
+      grad.addColorStop(0.5, 'rgba(25, 24, 23, 0.05)');
+      grad.addColorStop(1, 'rgba(16, 17, 18, 0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // Subtle connective constellation threads
+      // Connective constellation threads
       ctx.lineWidth = 0.5;
       for (let i = 0; i < particles.length; i += 4) {
         for (let j = i + 1; j < Math.min(i + 12, particles.length); j++) {
@@ -218,7 +216,7 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
 
           if (distSq < 1600) {
             const alpha = (1 - Math.sqrt(distSq) / 40) * 0.14;
-            ctx.strokeStyle = `rgba(169, 184, 155, ${alpha})`;
+            ctx.strokeStyle = `rgba(214, 111, 67, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -253,7 +251,7 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
         p.vx += (targetX - p.x) * spring;
         p.vy += (targetY - p.y) * spring;
 
-        // Friction / damping
+        // Damping
         p.vx *= 0.88;
         p.vy *= 0.88;
 
@@ -288,32 +286,29 @@ export const AbstractIdentity: React.FC<{ className?: string; interactive?: bool
   return (
     <div
       className={`relative group flex items-center justify-center select-none ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Canvas */}
       <canvas
         ref={canvasRef}
         className="w-full h-full cursor-crosshair transition-opacity duration-700"
       />
 
-      {/* Decorative Editorial Framing Coordinates */}
-      <div className="absolute top-3 left-3 font-mono text-[10px] tracking-widest text-[#888D85] pointer-events-none flex items-center gap-2">
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#A9B89B] animate-pulse"></span>
+      {/* Decorative Framing Coordinates */}
+      <div className="absolute top-3 left-3 font-mono text-[10px] tracking-widest text-[#A9A29A] pointer-events-none flex items-center gap-2">
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#D66F43] animate-pulse"></span>
         <span>ID // G_OMPRAKASH.0x27</span>
       </div>
 
-      <div className="absolute top-3 right-3 font-mono text-[10px] tracking-wider text-[#888D85] pointer-events-none hidden sm:block">
+      <div className="absolute top-3 right-3 font-mono text-[10px] tracking-wider text-[#A9A29A] pointer-events-none hidden sm:block">
         [MODE: ARCHITECTURAL_CONSTELLATION]
       </div>
 
-      <div className="absolute bottom-3 left-3 font-mono text-[9px] tracking-wider text-[#888D85]/80 pointer-events-none">
+      <div className="absolute bottom-3 left-3 font-mono text-[9px] tracking-wider text-[#A9A29A]/80 pointer-events-none">
         <span>CLICK TO DISPERSE // HOVER TO DEFLECT</span>
       </div>
 
-      <div className="absolute bottom-3 right-3 font-mono text-[9px] tracking-wider text-[#A9B89B] pointer-events-none flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]"></span>
-        <span>NODES: 345 ACTIVE</span>
+      <div className="absolute bottom-3 right-3 font-mono text-[9px] tracking-wider text-[#D66F43] pointer-events-none flex items-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#D66F43]"></span>
+        <span>NODES: 350 ACTIVE</span>
       </div>
     </div>
   );

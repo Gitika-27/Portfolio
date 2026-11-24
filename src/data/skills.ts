@@ -1,6 +1,6 @@
 export interface SkillItem {
   name: string;
-  category: 'Programming' | 'Frontend' | 'Backend' | 'AI & ML' | 'Databases' | 'Cloud & Tools' | 'Blockchain';
+  category: 'Programming' | 'Development' | 'AI & Intelligent Systems' | 'Tools & Platforms';
   context: string;
   projectConnection?: string;
   highlight?: boolean;
@@ -9,55 +9,38 @@ export interface SkillItem {
 export const skillCategories = [
   'All',
   'Programming',
-  'AI & ML',
-  'Frontend',
-  'Backend',
-  'Databases',
-  'Cloud & Tools',
-  'Blockchain'
+  'Development',
+  'AI & Intelligent Systems',
+  'Tools & Platforms',
 ] as const;
 
 export const skillsData: SkillItem[] = [
   // Programming
-  { name: 'Python', category: 'Programming', context: 'Primary language for ML, scripting, scanning orchestration, and backend APIs.', projectConnection: 'FutureForge, CatchPhish, TrafficSense', highlight: true },
-  { name: 'TypeScript', category: 'Programming', context: 'Typed frontend architectures and scalable UI components.', projectConnection: 'TrafficSense, Modern Web Apps', highlight: true },
-  { name: 'JavaScript', category: 'Programming', context: 'Interactive visual state machines, DOM manipulation, and asynchronous web logic.', projectConnection: 'Algorithm Lab, WealthAvatar' },
-  { name: 'C / C++', category: 'Programming', context: 'Algorithmic fundamentals, memory structures, and performance-critical systems.', projectConnection: 'Academic Foundation & DAA' },
-  { name: 'Java', category: 'Programming', context: 'Object-oriented programming, data structures, and enterprise backend patterns.' },
-  { name: 'SQL', category: 'Programming', context: 'Relational data modeling, querying, and schema definition.', projectConnection: 'TrafficSense, MySQL Pipelines' },
+  { name: 'Python', category: 'Programming', context: 'Scripting, scanning runners, machine learning heuristics, and backend API microservices.', projectConnection: 'FutureForge, CatchPhish, TrafficSense', highlight: true },
+  { name: 'C', category: 'Programming', context: 'Algorithmic fundamentals, memory concepts, and foundational systems programming.', projectConnection: 'Academic Foundation & DAA' },
+  { name: 'C++', category: 'Programming', context: 'Object-oriented data structures, competitive programming, and performance optimization.', projectConnection: 'DAA Sem3 & Algorithms' },
+  { name: 'Java', category: 'Programming', context: 'Object-oriented application architecture, modular data pipelines, and core programming paradigms.' },
 
-  // AI & ML
-  { name: 'XGBoost', category: 'AI & ML', context: 'Gradient boosting algorithms for high-speed tabular classification.', projectConnection: 'CatchPhish Phishing Detection', highlight: true },
-  { name: 'SHAP', category: 'AI & ML', context: 'Game-theoretic Shapley values for explainable machine learning predictions.', projectConnection: 'CatchPhish Explainability Engine', highlight: true },
-  { name: 'Generative AI', category: 'AI & ML', context: 'LLM orchestration, prompt engineering, and contextual reasoning workflows.' },
-  { name: 'CrewAI', category: 'AI & ML', context: 'Multi-agent orchestration and task delegation for complex autonomous flows.' },
-  { name: 'Feature Engineering', category: 'AI & ML', context: 'Lexical, host-based, and traffic time-series signal extraction.', projectConnection: 'CatchPhish & TrafficSense' },
-  { name: 'Predictive Modeling', category: 'AI & ML', context: 'Congestion modeling and speed trend forecasting.', projectConnection: 'TrafficSense AI' },
+  // Development
+  { name: 'React', category: 'Development', context: 'Component-driven reactive single-page applications, custom hooks, and state management.', projectConnection: 'CatchPhish, WealthAvatar, FutureForge UI', highlight: true },
+  { name: 'TypeScript', category: 'Development', context: 'Strict typing, scalable frontend interfaces, and robust component contracts.', projectConnection: 'TrafficSense, Modern Web Apps', highlight: true },
+  { name: 'JavaScript', category: 'Development', context: 'Interactive visual state machines, DOM manipulation, and asynchronous web workflows.', projectConnection: 'Algorithm Lab, WealthAvatar' },
+  { name: 'HTML & CSS', category: 'Development', context: 'Semantic web layouts, accessible markup, responsive grid structures, and design tokens.', projectConnection: 'Algorithm Lab & Modern Portfolios' },
+  { name: 'Full-Stack Development', category: 'Development', context: 'End-to-end web architectures linking reactive frontends to asynchronous backend APIs.', projectConnection: 'CatchPhish & WealthAvatar', highlight: true },
+  { name: 'REST APIs', category: 'Development', context: 'Contract-first API design, JSON serialization, HTTP status conventions, and endpoint security.', projectConnection: 'CatchPhish, FutureForge' },
 
-  // Frontend
-  { name: 'React', category: 'Frontend', context: 'Component-driven reactive UIs, state management, and custom hook architectures.', projectConnection: 'CatchPhish, WealthAvatar, FutureForge UI', highlight: true },
-  { name: 'Angular', category: 'Frontend', context: 'Structured single-page application framework and dependency injection.' },
-  { name: 'HTML5 & CSS3', category: 'Frontend', context: 'Semantic layout, responsive grid systems, and custom design systems.', projectConnection: 'Algorithm Lab & Web Projects' },
-  { name: 'Tailwind CSS', category: 'Frontend', context: 'Utility-first modern styling, responsive tokens, and micro-interactions.' },
+  // AI & Intelligent Systems
+  { name: 'AI/ML', category: 'AI & Intelligent Systems', context: 'Applied machine learning pipelines, classification heuristics, and feature engineering.', projectConnection: 'CatchPhish & TrafficSense AI', highlight: true },
+  { name: 'LLM Applications', category: 'AI & Intelligent Systems', context: 'Generative AI workflows, prompt design, structured outputs, and LLM orchestration.' },
+  { name: 'CrewAI', category: 'AI & Intelligent Systems', context: 'Multi-agent orchestration, autonomous role delegation, and collaborative reasoning chains.', highlight: true },
+  { name: 'Agent Orchestration', category: 'AI & Intelligent Systems', context: 'Designing tool-calling agents, state machines, and context management protocols.' },
+  { name: 'RAG Concepts', category: 'AI & Intelligent Systems', context: 'Retrieval-Augmented Generation architectures, chunking strategies, and semantic lookups.' },
+  { name: 'AI Integrations', category: 'AI & Intelligent Systems', context: 'Embedding intelligent features, advisory engines, and predictions into consumer products.', projectConnection: 'WealthAvatar Cashius AI' },
 
-  // Backend
-  { name: 'FastAPI', category: 'Backend', context: 'High-performance asynchronous Python REST APIs with automatic OpenAPI docs.', projectConnection: 'CatchPhish & FutureForge', highlight: true },
-  { name: 'Flask', category: 'Backend', context: 'Lightweight microservices and prototype endpoints.' },
-  { name: 'REST APIs', category: 'Backend', context: 'Contract-first API design, JSON serialization, and error handling.', projectConnection: 'CatchPhish, FutureForge' },
-
-  // Databases
-  { name: 'MySQL', category: 'Databases', context: 'Relational schema design, normalization, indexing, and transactional integrity.' },
-  { name: 'MongoDB', category: 'Databases', context: 'Document storage, aggregation pipelines, and schema-less data stores.' },
-  { name: 'Firebase', category: 'Databases', context: 'Real-time database, authentication, and cloud functions.' },
-
-  // Cloud & Tools
-  { name: 'Docker Compose', category: 'Cloud & Tools', context: 'Multi-container network segmentation, isolated labs, and scanner deployment.', projectConnection: 'FutureForge P1 Labs', highlight: true },
-  { name: 'Git & GitHub', category: 'Cloud & Tools', context: 'Version control, branch management, collaborative pull requests, and CI/CD.' },
-  { name: 'AWS', category: 'Cloud & Tools', context: 'Cloud infrastructure essentials, S3 object storage, and compute hosting.' },
-  { name: 'n8n', category: 'Cloud & Tools', context: 'Workflow automation, webhook integration, and service connectivity.' },
-  { name: 'Nmap & Trivy', category: 'Cloud & Tools', context: 'Network port discovery and container image vulnerability assessment.', projectConnection: 'FutureForge Lab Ingestion' },
-
-  // Blockchain
-  { name: 'Solidity', category: 'Blockchain', context: 'Smart contract development, EVM state transitions, and contract logic.' },
-  { name: 'Blockchain Fundamentals', category: 'Blockchain', context: 'Distributed ledgers, consensus mechanisms, cryptographic hashing, and peer-to-peer security.' }
+  // Tools & Platforms
+  { name: 'Git & GitHub', category: 'Tools & Platforms', context: 'Version control, collaborative branches, pull request workflows, and repository management.', projectConnection: 'All Repositories & CI', highlight: true },
+  { name: 'Docker', category: 'Tools & Platforms', context: 'Containerization, multi-tier network segmentation, and automated testing environments.', projectConnection: 'FutureForge P1 Labs', highlight: true },
+  { name: 'Firebase', category: 'Tools & Platforms', context: 'Real-time database synchronisation, user authentication, and cloud functions.' },
+  { name: 'Cloud Platforms', category: 'Tools & Platforms', context: 'Hosting, container runners, cloud deployment protocols, and storage buckets.' },
+  { name: 'Google AI Tooling', category: 'Tools & Platforms', context: 'Cloud AI foundations, developer toolkits, and student ecosystem technologies.', projectConnection: 'GSA \'26 & EduSkills Internship' }
 ];
