@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Github, Linkedin, Terminal, Sparkles, Compass, ShieldAlert, Cpu } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Terminal, Sparkles, Compass } from 'lucide-react';
 import { AbstractIdentity } from './AbstractIdentity';
 import { VanteRibbon } from './VanteRibbon';
 
@@ -13,6 +13,16 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
       id="hero"
       className="relative min-h-screen pt-28 pb-16 flex flex-col justify-between overflow-hidden bg-grid-subtle"
     >
+      {/* ===== LARGE G PARTICLE ANIMATION — BACKGROUND IDENTITY ELEMENT ===== */}
+      <div
+        className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
+        style={{ opacity: 0.18 }}
+      >
+        <div className="w-[70vw] h-[70vh] max-w-[900px] max-h-[900px] pointer-events-auto">
+          <AbstractIdentity className="w-full h-full" interactive={true} />
+        </div>
+      </div>
+
       {/* Editorial Watermark Background (Axon / Pink Rider inspiration) */}
       <div className="absolute top-20 right-4 sm:right-12 pointer-events-none select-none opacity-[0.03] leading-none font-display font-black text-[18vw] text-right z-0">
         AI·SYSTEMS
@@ -42,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
       {/* Center Cinematic Composition: Oversized Name & Vante 3D Ribbon */}
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 my-auto py-8 sm:py-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        {/* Left Column: Dominant Oversized Name Typography + G Particle Signature */}
+        {/* Left Column: Dominant Oversized Name Typography */}
         <div className="lg:col-span-6 flex flex-col justify-center">
           
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#191817] border border-[#F2EEE8]/12 text-xs font-mono text-[#D66F43] w-fit mb-6">
@@ -112,38 +122,13 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
             </div>
           </div>
 
-          {/* Supporting Signature Element: Abstract G Particle Identity */}
-          <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-[#191817]/70 border border-[#F2EEE8]/10 backdrop-blur-md max-w-md">
-            <div className="w-20 h-20 rounded-xl overflow-hidden bg-[#101112] border border-[#F2EEE8]/10 shrink-0">
-              <AbstractIdentity className="w-full h-full" />
-            </div>
-            <div>
-              <div className="font-mono text-[10px] text-[#D66F43] uppercase tracking-wider flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D66F43]"></span>
-                <span>CRYPTOGRAPHIC MONOGRAM G</span>
-              </div>
-              <div className="font-display text-xs font-semibold text-[#F2EEE8] mt-0.5">
-                Generative Particle Identity
-              </div>
-              <p className="font-sans text-[11px] text-[#A9A29A] font-light leading-snug mt-0.5">
-                Interactive particle physics. Disperses on click, repels on hover.
-              </p>
-            </div>
-          </div>
-
         </div>
 
         {/* Right Column: VANTE 3D RIBBON ANIMATION */}
         <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
-          <div className="w-full aspect-[4/3] max-w-2xl rounded-2xl bg-[#191817]/40 border border-[#F2EEE8]/10 backdrop-blur-sm relative overflow-hidden shadow-2xl">
+          <div className="w-full ribbon-container rounded-2xl bg-[#191817]/40 border border-[#F2EEE8]/10 backdrop-blur-sm relative overflow-hidden shadow-2xl">
             {/* The 3D Ribbon showcasing CatchPhish, TrafficSense, FutureForge, WealthAvatar, Algorithm Lab */}
             <VanteRibbon onSelectProject={onSelectProject} />
-          </div>
-
-          <div className="mt-3.5 font-mono text-[11px] text-[#A9A29A] text-center flex items-center gap-2">
-            <span>VANTE CURVED 3D FLOW</span>
-            <span>•</span>
-            <span className="text-[#D66F43]">5 VERIFIED PROJECT ARTIFACTS</span>
           </div>
         </div>
 

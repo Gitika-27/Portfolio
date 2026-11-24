@@ -52,8 +52,8 @@ export const App: React.FC = () => {
       {/* Main Experience Flow */}
       <main>
         <Hero onSelectProject={handleSelectProjectFromRibbon} />
-        <About />
         <ProjectsShowcase />
+        <About />
         <TechnicalArsenal />
         <ExperienceSection />
         <LeadershipSection />
